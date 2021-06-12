@@ -5,8 +5,9 @@
     hidden checkbox is used as click reciever,
     so you can use the :checked selector on it.
       -->
-      <input type="checkbox">
-
+      <input type="checkbox" id='menuToggleInput'>
+      <div id="menu_backdrop" onclick='document.getElementById("menuToggleInput").checked = false'>
+      </div>
       <!--
     Some spans to act as a hamburger. 
     They are acting like a real hamburger,
@@ -76,7 +77,7 @@ export default {
   opacity: 1;
   /* opacity: 0; */
   /* hide this */
-  z-index: 3;
+  z-index: 7;
 }
 
 
@@ -98,7 +99,7 @@ export default {
   cursor: pointer;
   opacity: 0;
   /* hide this */
-  z-index: 2;
+  z-index: 6;
   /* and place it over the hamburger */
   -webkit-touch-callout: none;
 }
@@ -115,7 +116,7 @@ export default {
   position: relative;
   background: #cdcdcd;
   border-radius: 3px;
-  z-index: 1;
+  z-index: 5;
   transform-origin: 4px 0px;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
     background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
@@ -148,6 +149,7 @@ export default {
   text-align: left;
   background: rgba(237,237,237,0.92);
   list-style-type: none;
+  z-index: 4;
   -webkit-font-smoothing: antialiased;
   /* stop flickering of text in safari */
   transform-origin: 0% 0%;
@@ -173,5 +175,23 @@ export default {
 
 #menuToggle input:checked ~ #menu {
   transform: none;
+}
+#menu_backdrop {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: fixed;
+  margin: 0 0 0 0;
+  top:0;
+  left: 0;
+  right: 0;
+  transform-origin: 0% 0%;
+  transform: translate(-100vw, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+#menuToggle input:checked ~ #menu_backdrop {
+  
+  transform: none;
+  
 }
 </style>
