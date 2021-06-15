@@ -437,6 +437,9 @@
     /* vertical-align:baseline; */
     margin-top: 3px;
   }
+  #app_opener {
+    cursor: pointer;
+  }
   /* The Modal (background) */
   .modal {
     display: none; /* Hidden by default */
