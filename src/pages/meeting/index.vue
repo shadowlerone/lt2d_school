@@ -54,7 +54,7 @@
               viewBox="0 0 33 22"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="noselect"
+              class="noselect half"
               onclick="openWindowSide()"
             >
               <rect
@@ -67,7 +67,6 @@
                 fill="white"
                 stroke="white"
                 stroke-width="2"
-                z-index="0"
                 opacity="0.5"
               />
 
@@ -267,6 +266,8 @@ a:hover {
   display: inline;
   position: absolute;
   left: 0px;
+  background: #212533;
+  height: 50px;
 }
 
 h1 {
@@ -450,6 +451,8 @@ h1 {
   right: 1vw;
   z-index: 99999;
   display: flex;
+  background-color: #212533;
+  padding-left: 0.25rem;
 }
 
 .dot {
@@ -489,7 +492,20 @@ h1 {
   height: 36px;
 }
 #app_opener * {
-  transition: width 0.3s ease-in, d 0.3s ease-in;
+  transition: width 0.3s ease-in, d 0.3s ease-in, transform 0.3s ease-in, stroke-width 0.3s ease-in ;
+}
+#app_opener.half:hover #v-line, #app_opener:hover #right-arrow {
+  animation-iteration-count: 1;
+  animation-duration: 0.50s;
+  animation-name: app_opener_hover;
+  animation-timing-function: linear;
+}
+#app_opener.meeting_fullscreen:hover #right-arrow {
+  animation-iteration-count: 1;
+  animation-duration: 0.50s;
+  animation-name: app_opener_hover;
+  animation-timing-function: linear;
+  animation-direction: reverse;
 }
 #app_opener.app_fullscreen #back-fill {
   width: 31px;
@@ -503,7 +519,7 @@ h1 {
   stroke-width: 1;
 }
 #app_opener.meeting_fullscreen #v-line {
-  d: path("M2 2V20");
+  transform: translate(-12px);
   stroke-width: 1;
 }
 
@@ -570,9 +586,9 @@ h1 {
 .rotate {
   transform: rotate(-90deg) translate(-100%, 0%);
 }
-@media screen and (orientation: portrait) {
+/*@media screen and (orientation: portrait) {
   .modal {
     display: block;
   }
-}
+}*/
 </style>
