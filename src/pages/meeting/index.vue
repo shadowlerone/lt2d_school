@@ -85,6 +85,7 @@
                 id="right-arrow"
                 d="M27.3536 11.3536C27.5488 11.1583 27.5488 10.8417 27.3536 10.6464L24.1716 7.46447C23.9763 7.2692 23.6597 7.2692 23.4645 7.46447C23.2692 7.65973 23.2692 7.97631 23.4645 8.17157L26.2929 11L23.4645 13.8284C23.2692 14.0237 23.2692 14.3403 23.4645 14.5355C23.6597 14.7308 23.9763 14.7308 24.1716 14.5355L27.3536 11.3536ZM19 11.5L27 11.5V10.5L19 10.5V11.5Z"
                 fill="white"
+                stroke="white"
               />
               <path id="v-line" d="M14 0V22" stroke="white" stroke-width="2" />
             </svg>
@@ -498,12 +499,30 @@ h1 {
 }
 
 #app_opener.app_fullscreen #v-line {
-  d: path("M31 2V20");
+  transform: translate(17px);
   stroke-width: 1;
 }
 #app_opener.meeting_fullscreen #v-line {
   d: path("M2 2V20");
   stroke-width: 1;
+}
+
+@keyframes app_opener_hover {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(1px);
+  }
+  50% {
+    transform: translate(0px);
+  }
+  75% {
+    transform: translate(-1px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
 
 #app_opener.meeting_fullscreen #right-arrow {
