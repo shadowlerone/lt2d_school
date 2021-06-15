@@ -25,7 +25,7 @@
         <li v-for="item in filtered_rooms" v-bind:key="item.id" v-bind:name="item.name" class="room">
           <div v-if="item.classroom" onclick="document.querySelector('#menuToggle > input[type=checkbox]').checked = false">
             <div v-if=" item.name === item.name.toUpperCase() " class="program"> {{ item.name }} </div>
-            <div v-else><router-link :to="{ name: item.route, params: item.classroom }">{{ item.name }}</router-link>
+            <div :class=" { current : ($route.params.meet == item.classroom.meet)}" class="room-link" v-else><router-link :to="{ name: item.route, params: item.classroom }">{{ item.name }}</router-link>
           </div>
           </div>
         </li>
