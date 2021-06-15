@@ -418,6 +418,7 @@
     text-align: center;
     color: white;
     background-color: transparent;
+    cursor: pointer;
   }
   .dot.active {
     background-color: lime !important;
