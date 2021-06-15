@@ -30,6 +30,7 @@
 		return false;
 	}
 	var count = 1;
+	var val;
 	function get_iframes() {
 		var j;
 		var a;
@@ -47,7 +48,10 @@
 	}
 	function openWindowSide() {
 		var i = document.getElementById("app_opener");
-		[count, i.src] = cycle();
+		var cls = ["app_fullscreen", "meeting_fullscreen", "half"];
+		i.classList.remove(...cls);
+		[count, val] = cycle();
+		i.classList.add(val);
 		resize(count);
 		//window.dispatchEvent(new Event("resize"));
 	}
