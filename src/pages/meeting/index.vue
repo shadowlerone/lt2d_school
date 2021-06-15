@@ -41,18 +41,9 @@
           </div>
         </div>
         <div style="display:none">
-          <input
-            type="radio"
-            name="app_state"
-            value="half"
-            checked="checked"
-          />
+          <input type="radio" name="app_state" value="half" checked="checked" />
           <input type="radio" name="app_state" value="app_fullscreen" />
-          <input
-            type="radio"
-            name="app_state"
-            value="meeting_fullscreen"
-          />
+          <input type="radio" name="app_state" value="meeting_fullscreen" />
         </div>
         <div id="open" style="right: 1%; position: fixed">
           <a>
@@ -63,7 +54,7 @@
               viewBox="0 0 33 22"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class=""
+              class="noselect"
               onclick="openWindowSide()"
             >
               <rect
@@ -516,7 +507,19 @@ h1 {
 }
 
 #app_opener.meeting_fullscreen #right-arrow {
-  d: path("M6.64645 10.6464C6.45118 10.8417 6.45118 11.1583 6.64645 11.3536L9.82843 14.5355C10.0237 14.7308 10.3403 14.7308 10.5355 14.5355C10.7308 14.3403 10.7308 14.0237 10.5355 13.8284L7.70711 11L10.5355 8.17157C10.7308 7.97631 10.7308 7.65973 10.5355 7.46447C10.3403 7.2692 10.0237 7.2692 9.82843 7.46447L6.64645 10.6464ZM15 10.5L7 10.5L7 11.5L15 11.5L15 10.5Z")
+  d: path(
+    "M6.64645 10.6464C6.45118 10.8417 6.45118 11.1583 6.64645 11.3536L9.82843 14.5355C10.0237 14.7308 10.3403 14.7308 10.5355 14.5355C10.7308 14.3403 10.7308 14.0237 10.5355 13.8284L7.70711 11L10.5355 8.17157C10.7308 7.97631 10.7308 7.65973 10.5355 7.46447C10.3403 7.2692 10.0237 7.2692 9.82843 7.46447L6.64645 10.6464ZM15 10.5L7 10.5L7 11.5L15 11.5L15 10.5Z"
+  );
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 /* The Modal (background) */
