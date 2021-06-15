@@ -2,13 +2,13 @@
   <div>
     <div v-if="$route.params" id="content">
       <div id="header">
-        <span class="connState"></span>
+        <!--<span class="connState"></span>-->
         <!--<button id="start-togetherjs" type="button"
           onclick="TogetherJS(this); return false"
           data-end-togetherjs-html="End TogetherJS">
           Start TogetherJS
         </button>-->
-        <div id="save"></div>
+        <!--<div id="save"></div>-->
 
         <div id="logo">
           <img
@@ -20,7 +20,7 @@
         </div>
         <h1>{{ thisRooms.name }}</h1>
 
-        <div class="modal-container">
+        <!--<div class="modal-container">
           <input
             id="modal-toggle"
             type="checkbox"
@@ -34,12 +34,12 @@
               <div>
                 <h2>{{ thisRooms.alt }}</h2>
                 <h2>{{ thisRooms.meet }}</h2>
-                <!--<h3>{{ $route.params }}</h3>-->
+                h3>{{ $route.params }}</h3>
               </div>
               <label class="modal-close button" for="modal-toggle">Close</label>
             </div>
           </div>
-        </div>
+        </div>-->
         <div style="display:none">
           <input type="radio" name="app_state" value="half" checked="checked" />
           <input type="radio" name="app_state" value="app_fullscreen" />
