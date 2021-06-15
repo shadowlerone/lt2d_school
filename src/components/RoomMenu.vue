@@ -194,4 +194,28 @@ export default {
   transform: none;
   
 }
+.room-link {
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+.room-link a {
+  color: black;
+  text-decoration: none;
+  display:block;
+  height: 100%;
+}
+
+.room-link:hover {
+  background-color: rgba(49,200,106,1);
+  border-radius: 0;
+}
+.room-link.current {
+  border-radius: 0;
+  background-color: rgba(49,200,106,1);
+}
 </style>
