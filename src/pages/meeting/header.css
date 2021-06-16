@@ -1,0 +1,90 @@
+#header {
+	position: fixed;
+	top: 0;
+	left: 0px;
+	/* height: 50px; */
+	width: 100%;
+	background: #212533;
+	padding: 0.5rem;
+	z-index: 10000;
+	color: white;
+	box-sizing: border-box;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.flex-container *:not(:last-child) {
+	margin-right: 0.50rem;
+}
+
+#header.flex-container {
+	justify-content: space-around safe;
+	align-items: center;
+}
+
+
+#header svg, #header img {
+	/* style="height: 37px; padding: 6px 6px 6px 6px; margin-left: 60px" */
+	height: 36px;
+}
+#header svg:focus {
+	outline: none;
+}
+
+.fg-2 {
+	flex-grow: 2;
+}
+
+/* #header img {
+	max-width: 80%;
+} */
+
+#apps {
+	background-color: white;
+}
+
+#logo {
+
+}
+
+h1 {
+	font-size: 1.6rem;
+}
+
+#open {
+	/* position: fixed; */
+	top: 5px;
+	right: 1vw;
+	z-index: 99999;
+	display: flex;
+	background-color: #212533;
+	padding-left: 0.25rem;
+}
+.dot home {
+
+}
+
+.dot img, .dot svg {
+	width: 36px;
+	height: 36px;
+}
+.dot svg text {
+	font-family: inherit;
+	font-size: 24pt;
+}
+.dot.home circle {
+	fill: #ff5555;
+}
+
+.dot.active {
+	background-color: lime !important;
+}
+
+.dot:hover circle{
+	/* background-color: #999 !important; */
+	fill: #339 !important;
+}
