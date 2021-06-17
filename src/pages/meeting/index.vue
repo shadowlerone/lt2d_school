@@ -16,11 +16,15 @@
 				/>
 			</div>
 			<div id="header" class="flex-container">
+				<div class="burger top" onclick="toggleMenu(this)" data-menu="room-menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
 				<div>
 					<img
 						src="assets/Preville-Logo-white.svg"
 						alt="Preville Logo"
-						
 						id="logoImg"
 					/>
 				</div>
@@ -105,7 +109,10 @@
 				</template>
 				<div class="dot support">
 					<a
-						class="support" target="_blank" onclick="" href="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
+						class="support"
+						target="_blank"
+						onclick=""
+						href="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
 					>
 						<img
 							v-svg-inline

@@ -1,6 +1,6 @@
 <template>
-	<div class="menu-container">
-		<div class="menu-backdrop"></div>
+	<div class="menu-container" id="room-menu">
+		<div class="menu-backdrop" onclick="closeMenu()"></div>
 		<div class="menu">
 			<ul>
 				<li class="room">
@@ -19,7 +19,6 @@
 					v-bind:key="item.id"
 					v-bind:name="item.name"
 					class="room"
-					onclick="closeMenu()"
 				>
 					<div
 						v-if="item.name === item.name.toUpperCase()"
@@ -85,13 +84,27 @@ export default {
 
 <style>
 .menu-container > * {
-	/* transform: translate(-100%, 0);
-	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); */
+	transform: translate(-100%, 0);
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
+
+.menu-container.open > * {
+	transform: translate(0, 0);
+}
+
 .menu,
 .menu * {
 	box-sizing: border-box;
 }
+
+.room input {
+	display: block;
+	text-align: center;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .menu {
 	position: fixed;
 	width: 50vw;
@@ -131,7 +144,7 @@ export default {
 	z-index: 5;
 	top: 0;
 	position: fixed;
-	background-color: red;
+	background-color: transparent;
 }
 
 .room-link {

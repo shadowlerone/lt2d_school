@@ -22,6 +22,15 @@
 
 <script type="text/javascript">
 	var faq = false;
+	function closeMenu() {
+		var i = document.getElementById('room-menu');
+		i.classList.remove("open")
+	}
+	function toggleMenu(button) {
+		var i = document.getElementById(button.dataset.menu);
+		i.classList.toggle("open");
+		// button.classList.toggle("open")
+	}
 	function breakout(t, link) {
 		console.log("Clicked!")
 		var coll = document.getElementsByClassName("dot");
