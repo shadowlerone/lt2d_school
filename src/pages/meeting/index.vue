@@ -15,61 +15,38 @@
 					value="meeting_fullscreen"
 				/>
 			</div>
-			<div id="header" class="flex-container">
-				<div class="burger top" onclick="toggleMenu(this)" data-menu="room-menu">
-					<span></span>
-					<span></span>
-					<span></span>
+			<div id="header" class="fc">
+				<div class="fg fg-1 fc fc-left">
+					<div
+						class="burger top"
+						onclick="toggleMenu(this)"
+						data-menu="room-menu"
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="fg-3">
+						<img
+							src="assets/Preville-Logo-white.svg"
+							alt="Preville Logo"
+							id="logoImg"
+						/>
+					</div>
 				</div>
-				<div>
-					<img
-						src="assets/Preville-Logo-white.svg"
-						alt="Preville Logo"
-						id="logoImg"
-					/>
-				</div>
-				<div class="fg-2">
+				<div class="fg fg-3">
 					<h1>{{ thisRooms.name }}</h1>
 				</div>
-				<div>
-					<a><img v-svg-inline src="assets/switcher.svg"/></a>
-				</div>
-				<div class="dot home">
-					<a
-						:href="'https://meet.jit.si/' + thisRooms.meet"
-						target="meeting_iframe"
-						onclick="breakout(this)"
-					>
-						<img
-							v-svg-inline
-							class="icon"
-							src="assets/home/SVG/Home - Dark.svg"
-						/>
-					</a>
-				</div>
-				<template v-if="thisRooms.classroom.breakout_rooms > 3">
-					<div class="dot" v-for="n in 3" v-bind:key="n">
+				<div class="fg fc">
+					<div>
+						<a><img v-svg-inline src="assets/switcher.svg"/></a>
+					</div>
+					<div class="dot home">
 						<a
-							:href="
-								'https://meet.jit.si/' +
-									thisRooms.meet +
-									'-breakout-room-' +
-									n +
-									config.meetingSettings
-							"
+							:href="'https://meet.jit.si/' + thisRooms.meet"
 							target="meeting_iframe"
 							onclick="breakout(this)"
 						>
-						</a>
-						<img
-							v-svg-inline
-							class="icon"
-							:src="'assets/home/SVG/Dot' + n + ' - Dark.svg'"
-						/>
-					</div>
-					<!-- TODO: DROPDOWN MENU FOR ROOMS WITH MORE THAN 3 BREAKOUT ROOMS -->
-					<div class="dot">
-						<a>
 							<img
 								v-svg-inline
 								class="icon"
@@ -77,24 +54,20 @@
 							/>
 						</a>
 					</div>
-				</template>
-				<template v-else>
-					<div
-						class="dot"
-						v-for="n in thisRooms.classroom.breakout_rooms"
-						v-bind:key="n"
-					>
-						<a
-							:href="
-								'https://meet.jit.si/' +
-									thisRooms.meet +
-									'-breakout-room-' +
-									n +
-									config.meetingSettings
-							"
-							target="meeting_iframe"
-							onclick="breakout(this)"
-						>
+					<template v-if="thisRooms.classroom.breakout_rooms > 3">
+						<div class="dot" v-for="n in 3" v-bind:key="n">
+							<a
+								:href="
+									'https://meet.jit.si/' +
+										thisRooms.meet +
+										'-breakout-room-' +
+										n +
+										config.meetingSettings
+								"
+								target="meeting_iframe"
+								onclick="breakout(this)"
+							>
+							</a>
 							<img
 								v-svg-inline
 								class="icon"
@@ -104,22 +77,61 @@
 										' - 24pt - Dark.svg'
 								"
 							/>
+						</div>
+						<!-- TODO: DROPDOWN MENU FOR ROOMS WITH MORE THAN 3 BREAKOUT ROOMS -->
+						<div class="dot menu-toggle">
+							<a>
+								<img
+									v-svg-inline
+									class="icon"
+									src="assets/home/SVG/Ellipses - centered - Dark.svg"
+								/>
+							</a>
+						</div>
+					</template>
+					<template v-else>
+						<div
+							class="dot"
+							v-for="n in thisRooms.classroom.breakout_rooms"
+							v-bind:key="n"
+						>
+							<a
+								:href="
+									'https://meet.jit.si/' +
+										thisRooms.meet +
+										'-breakout-room-' +
+										n +
+										config.meetingSettings
+								"
+								target="meeting_iframe"
+								onclick="breakout(this)"
+							>
+								<img
+									v-svg-inline
+									class="icon"
+									:src="
+										'assets/home/SVG/Dot ' +
+											n +
+											' - 24pt - Dark.svg'
+									"
+								/>
+							</a>
+						</div>
+					</template>
+					<div class="dot support">
+						<a
+							class="support"
+							target="_blank"
+							onclick=""
+							href="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
+						>
+							<img
+								v-svg-inline
+								class="icon"
+								src="assets/home/SVG/Q - Dark.svg"
+							/>
 						</a>
 					</div>
-				</template>
-				<div class="dot support">
-					<a
-						class="support"
-						target="_blank"
-						onclick=""
-						href="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
-					>
-						<img
-							v-svg-inline
-							class="icon"
-							src="assets/home/SVG/Q - Dark.svg"
-						/>
-					</a>
 				</div>
 			</div>
 
