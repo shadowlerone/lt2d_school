@@ -177,3 +177,11 @@ h1 {
 .menu ul li {
 	display: block;
 }
+
+#logoDiv {
+	text-align: left;
+}
+
+#logoDiv *:not(:last-child) {
+	margin-right: 0.25rem;
+}

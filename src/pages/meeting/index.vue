@@ -16,7 +16,7 @@
 				/>
 			</div>
 			<div id="header" class="fc">
-				<div class="fg fg-1 fc fc-left">
+				<div id="logoDiv" class="fg fg-1">
 					<div
 						class="burger top"
 						onclick="toggleMenu(this)"
