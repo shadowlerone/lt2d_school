@@ -71,7 +71,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 45px;
+  /* margin-top: 45px; */
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 .menu__item {
