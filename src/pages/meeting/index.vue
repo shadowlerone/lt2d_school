@@ -54,20 +54,25 @@
 							/>
 						</a>
 					</div>
-					<template v-if="thisRooms.classroom.breakout_rooms > 3">
-						<div class="dot" v-for="n in 3" v-bind:key="n">
-							<a
-								:href="
-									'https://meet.jit.si/' +
-										thisRooms.meet +
-										'-breakout-room-' +
-										n +
-										config.meetingSettings
-								"
-								target="meeting_iframe"
-								onclick="breakout(this)"
-							>
-							</a>
+					<div
+						class="dot"
+						v-for="n in Math.min(
+							3,
+							thisRooms.classroom.breakout_rooms
+						)"
+						v-bind:key="n"
+					>
+						<a
+							:href="
+								'https://meet.jit.si/' +
+									thisRooms.meet +
+									'-breakout-room-' +
+									n +
+									config.meetingSettings
+							"
+							target="meeting_iframe"
+							onclick="breakout(this)"
+						>
 							<img
 								v-svg-inline
 								class="icon"
@@ -77,47 +82,22 @@
 										' - 24pt - Dark.svg'
 								"
 							/>
-						</div>
-						<!-- TODO: DROPDOWN MENU FOR ROOMS WITH MORE THAN 3 BREAKOUT ROOMS -->
-						<div class="dot menu-toggle">
-							<a>
-								<img
-									v-svg-inline
-									class="icon"
-									src="assets/home/SVG/Ellipses - centered - Dark.svg"
-								/>
-							</a>
-						</div>
-					</template>
-					<template v-else>
-						<div
-							class="dot"
-							v-for="n in thisRooms.classroom.breakout_rooms"
-							v-bind:key="n"
-						>
-							<a
-								:href="
-									'https://meet.jit.si/' +
-										thisRooms.meet +
-										'-breakout-room-' +
-										n +
-										config.meetingSettings
-								"
-								target="meeting_iframe"
-								onclick="breakout(this)"
-							>
-								<img
-									v-svg-inline
-									class="icon"
-									:src="
-										'assets/home/SVG/Dot ' +
-											n +
-											' - 24pt - Dark.svg'
-									"
-								/>
-							</a>
-						</div>
-					</template>
+						</a>
+					</div>
+					<div
+						class="dot menu-toggle"
+						data-menu="break-room-menu"
+						onclick="toggleMenu(this)"
+						v-if="thisRooms.classroom.breakout_rooms > 3"
+					>
+						<a>
+							<img
+								v-svg-inline
+								class="icon"
+								src="assets/home/SVG/Ellipses - centered - Dark.svg"
+							/>
+						</a>
+					</div>
 					<div class="dot support">
 						<a
 							class="support"
@@ -142,6 +122,34 @@
 				</div>
 			</div>
 			<div class="window">
+				<div
+					v-if="thisRooms.classroom.breakout_rooms > 3"
+					id="break-room-menu"
+					class="menu"
+				>
+					<ul>
+						<li
+							v-for="room in thisRooms.classroom.breakout_rooms"
+							v-bind:key="room"
+						>
+							<div class="room-link">
+								<a
+									:href="
+										'https://meet.jit.si/' +
+											thisRooms.meet +
+											'-breakout-room-' +
+											n +
+											config.meetingSettings
+									"
+									target="meeting_iframe"
+									onclick="breakout(this)"
+								>
+									Breakout Room {{ room }}
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 				<iframe
 					allow="microphone; camera"
 					style="width: 0%; height: calc(100% - 50px); border: none;"

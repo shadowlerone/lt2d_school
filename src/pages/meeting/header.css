@@ -158,3 +158,22 @@ h1 {
 .dot.support:hover circle {
 	fill: #0fF077;
 }
+
+#break-room-menu {
+	/* display:none; */
+	transform: translateY(-120%);
+	position: absolute;
+	right:0;
+	background-color: orange;
+	padding: 1rem;
+	border-bottom-left-radius: 16px;
+	z-index:1;
+}
+#break-room-menu.open {
+	/* display: block; */
+	transform: translateY(0);
+}
+
+.menu ul li {
+	display: block;
+}
