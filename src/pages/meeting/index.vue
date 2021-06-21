@@ -15,57 +15,38 @@
 					value="meeting_fullscreen"
 				/>
 			</div>
-			<div id="header" class="flex-container">
-				<div>
-					<img
-						src="assets/Preville-Logo-white.svg"
-						alt="Preville Logo"
-						
-						id="logoImg"
-					/>
+			<div id="header" class="fc">
+				<div id="logoDiv" class="fg fg-1">
+					<div
+						class="burger top menu-toggle"
+						onclick="toggleMenu(this)"
+						data-menu="room-menu"
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="fg-3">
+						<img
+							src="assets/Preville-Logo-white.svg"
+							alt="Preville Logo"
+							id="logoImg"
+						/>
+					</div>
 				</div>
-				<div class="fg-2">
+				<div class="fg fg-3">
 					<h1>{{ thisRooms.name }}</h1>
 				</div>
-				<div>
-					<a><img v-svg-inline src="assets/switcher.svg"/></a>
-				</div>
-				<div class="dot home">
-					<a
-						:href="'https://meet.jit.si/' + thisRooms.meet"
-						target="meeting_iframe"
-						onclick="breakout(this)"
-					>
-						<img
-							v-svg-inline
-							class="icon"
-							src="assets/home/SVG/Home - Dark.svg"
-						/>
-					</a>
-				</div>
-				<template v-if="thisRooms.classroom.breakout_rooms > 3">
-					<div class="dot" v-for="n in 3" v-bind:key="n">
+				<div class="fg fc">
+					<div>
+						<a><img id="app_opener" v-svg-inline src="assets/switcher.svg"/></a>
+					</div>
+					<div class="dot home">
 						<a
-							:href="
-								'https://meet.jit.si/' +
-									thisRooms.meet +
-									'-breakout-room-' +
-									n +
-									config.meetingSettings
-							"
+							:href="'https://meet.jit.si/' + thisRooms.meet"
 							target="meeting_iframe"
 							onclick="breakout(this)"
 						>
-						</a>
-						<img
-							v-svg-inline
-							class="icon"
-							:src="'assets/home/SVG/Dot' + n + ' - Dark.svg'"
-						/>
-					</div>
-					<!-- TODO: DROPDOWN MENU FOR ROOMS WITH MORE THAN 3 BREAKOUT ROOMS -->
-					<div class="dot">
-						<a>
 							<img
 								v-svg-inline
 								class="icon"
@@ -73,11 +54,12 @@
 							/>
 						</a>
 					</div>
-				</template>
-				<template v-else>
 					<div
 						class="dot"
-						v-for="n in thisRooms.classroom.breakout_rooms"
+						v-for="n in Math.min(
+							3,
+							thisRooms.classroom.breakout_rooms
+						)"
 						v-bind:key="n"
 					>
 						<a
@@ -102,17 +84,34 @@
 							/>
 						</a>
 					</div>
-				</template>
-				<div class="dot support">
-					<a
-						class="support" target="_blank" onclick="" href="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
+					<div
+						class="dot menu-toggle"
+						data-menu="break-room-menu"
+						onclick="toggleMenu(this)"
+						v-if="thisRooms.classroom.breakout_rooms > 3"
 					>
-						<img
-							v-svg-inline
-							class="icon"
-							src="assets/home/SVG/Q - Dark.svg"
-						/>
-					</a>
+						<a>
+							<img
+								v-svg-inline
+								class="icon"
+								src="assets/home/SVG/Ellipses - centered - Dark.svg"
+							/>
+						</a>
+					</div>
+					<div class="dot support">
+						<a
+							class="support"
+							target="_blank"
+							onclick=""
+							href="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
+						>
+							<img
+								v-svg-inline
+								class="icon"
+								src="assets/home/SVG/Q - Dark.svg"
+							/>
+						</a>
+					</div>
 				</div>
 			</div>
 
@@ -123,6 +122,34 @@
 				</div>
 			</div>
 			<div class="window">
+				<div
+					v-if="thisRooms.classroom.breakout_rooms > 3"
+					id="break-room-menu"
+					class="menu"
+				>
+					<ul>
+						<li
+							v-for="room in thisRooms.classroom.breakout_rooms"
+							v-bind:key="room"
+						>
+							<div class="room-link">
+								<a
+									:href="
+										'https://meet.jit.si/' +
+											thisRooms.meet +
+											'-breakout-room-' +
+											n +
+											config.meetingSettings
+									"
+									target="meeting_iframe"
+									onclick="breakout(this)"
+								>
+									Breakout Room {{ room }}
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 				<iframe
 					allow="microphone; camera"
 					style="width: 0%; height: calc(100% - 50px); border: none;"

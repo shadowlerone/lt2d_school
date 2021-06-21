@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 	<link rel="icon" href="/favicon.ico" />
-	
+
 	<title>Latitude</title>
 </head>
 
@@ -22,6 +22,17 @@
 
 <script type="text/javascript">
 	var faq = false;
+	function closeMenu(id) {
+		var i = document.getElementById(id);
+		i.classList.remove("open")
+		syncState(id);
+	}
+	function toggleMenu(button) {
+		var i = document.getElementById(button.dataset.menu);
+		i.classList.toggle("open");
+		button.classList.toggle("open")
+		syncState(button.dataset.menu);
+	}
 	function breakout(t, link) {
 		console.log("Clicked!")
 		var coll = document.getElementsByClassName("dot");
@@ -56,7 +67,7 @@
 		resize(count);
 		//window.dispatchEvent(new Event("resize"));
 	}
-	function resize (count){
+	function resize(count) {
 		var [j, a] = get_iframes();
 		switch (count % 3) {
 			case 0:
@@ -108,9 +119,30 @@
 		f = true;
 	}
 
+	function syncState(menu) {
+		var state = document.getElementById(menu).classList.contains("open");
+		console.log(state);
+		Array.from(
+			document.getElementsByClassName('menu-toggle')
+		)
+			.filter(i => i.dataset.menu == menu)
+			.forEach(
+				(m) => {
+					if (state) {
+						console.log(m);
+						m.classList.add("open");
+					} else {
+						console.log(m);
+						m.classList.remove("open");
+					}
+				});
+		console.log("State Synced");
+	}
+
 	openWindowSide();
 
 </script>
 <script src="//cdn.jsdelivr.net/npm/vue-svg-inline-plugin"></script>
 <script src="//cdn.jsdelivr.net/npm/vue-svg-inline-plugin/dist/vue-svg-inline-plugin-modern.min.js"></script>
+
 </html>
