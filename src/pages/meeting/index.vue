@@ -18,7 +18,7 @@
 			<div id="header" class="fc">
 				<div id="logoDiv" class="fg fg-1">
 					<div
-						class="burger top"
+						class="burger top menu-toggle"
 						onclick="toggleMenu(this)"
 						data-menu="room-menu"
 					>

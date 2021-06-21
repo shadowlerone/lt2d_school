@@ -1,6 +1,6 @@
 <template>
 	<div class="menu-container" id="room-menu">
-		<div class="menu-backdrop" onclick="closeMenu()"></div>
+		<div class="menu-backdrop" onclick="closeMenu('room-menu')"></div>
 		<div class="menu">
 			<ul>
 				<li class="room">
