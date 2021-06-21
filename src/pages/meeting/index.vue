@@ -39,7 +39,7 @@
 				</div>
 				<div class="fg fc">
 					<div>
-						<a><img v-svg-inline src="assets/switcher.svg"/></a>
+						<a><img id="app_opener" v-svg-inline src="assets/switcher.svg"/></a>
 					</div>
 					<div class="dot home">
 						<a
