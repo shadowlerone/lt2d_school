@@ -105,7 +105,7 @@ export default {
 	margin-right: auto;
 }
 
-.menu {
+#room-menu .menu {
 	position: fixed;
 	width: 50vw;
 	height: 100vh;
@@ -144,7 +144,7 @@ export default {
 	z-index: 5;
 	top: 0;
 	position: fixed;
-	background-color: transparent;
+	background-color: rgba(0,0,0,0.2);
 }
 
 .room-link {
