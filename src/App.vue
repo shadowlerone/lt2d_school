@@ -75,6 +75,16 @@ export default {
   max-height: 100vh;
   max-width: 100vw;
 }
+/* This is stupid and hopefully temporary */
+body {
+  height: 100vh;
+}
+
+#app, .mb-4, .mb-4 > * {
+  height: 100%;
+}
+
+
 
 .menu__item {
   display: flex;
